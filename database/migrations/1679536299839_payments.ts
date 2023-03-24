@@ -7,9 +7,16 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.uuid('id').primary()
       table.decimal('valor')
+      table.string('empresa')
+      table.string('tipo')
+      table.string('categoria')
+      table.string('recorrencia')
+      table.decimal('status')
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
+      table.timestamp('data_pagamento', { useTz: true })
+      table.timestamp('data_cadastro', { useTz: true })
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

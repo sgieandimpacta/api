@@ -14,6 +14,27 @@ export default class Payment extends BaseModel {
   @column()
   public valor: number
 
+  @column()
+  public empresa: string
+
+  @column()
+  public tipo: string
+
+  @column()
+  public categoria: string
+
+  @column()
+  public recorrencia: string
+
+  @column()
+  public status: number
+
+  @column()
+  public data_pagamento: DateTime
+
+  @column.dateTime({ autoCreate: true })
+  public data_cadastro: DateTime
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
