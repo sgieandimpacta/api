@@ -62,3 +62,6 @@ typings/
 
 # typescript compiled code
 dist/
+
+# temp folder files
+tmp/
