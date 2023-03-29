@@ -11,7 +11,10 @@ export default class extends BaseSchema {
       table.string('tipo')
       table.string('categoria')
       table.string('recorrencia')
-      table.decimal('status')
+      table.decimal('status').defaultTo('a pagar')
+      table.string('codigo_boleto').nullable()
+      table.string('codigo_barras').nullable()
+      table.string('chave_pix').nullable()
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
