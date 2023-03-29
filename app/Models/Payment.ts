@@ -27,6 +27,15 @@ export default class Payment extends BaseModel {
   public recorrencia: string
 
   @column()
+  public codigo_boleto: string
+
+  @column()
+  public codigo_barras: string
+
+  @column()
+  public chave_pix: string
+
+  @column()
   public status: number
 
   @column()
