@@ -38,7 +38,7 @@ export default class Payment extends BaseModel {
   @column()
   public status: number
 
-  @column.dateTime()
+  @column.date()
   public data_pagamento: DateTime
 
   @column.dateTime({ autoCreate: true })
