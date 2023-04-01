@@ -3,7 +3,9 @@ import Payment from 'App/Models/Payment'
 
 export default class PostsController {
   public async index(ctx: HttpContextContract) {
-    const payments = await Payment.all()
+    const payments = (await Payment.all()).sort((a: Payment, b: Payment) => {
+      return a.data_vencimento.toMillis() - b.data_vencimento.toMillis()
+    })
     return ctx.response.send(payments, true)
   }
 

@@ -6,22 +6,22 @@ export default class extends BaseSchema {
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.uuid('id').primary()
-      table.decimal('valor')
+      table.double('valor')
       table.string('empresa')
       table.string('tipo')
       table.string('categoria')
       table.string('recorrencia')
-      table.decimal('status').defaultTo('a pagar')
+      table.double('status').defaultTo(0)
       table.string('codigo_boleto').nullable()
       table.string('codigo_barras').nullable()
       table.string('chave_pix').nullable()
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
-      table.timestamp('data_pagamento', { useTz: true })
-      table.timestamp('data_cadastro', { useTz: true })
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
+      table.date('data_vencimento')
+      table.dateTime('data_cadastro', { useTz: true })
+      table.dateTime('created_at', { useTz: true })
+      table.dateTime('updated_at', { useTz: true })
     })
   }
 
