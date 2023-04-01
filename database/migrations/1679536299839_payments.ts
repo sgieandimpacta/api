@@ -18,7 +18,7 @@ export default class extends BaseSchema {
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */
-      table.date('data_pagamento')
+      table.date('data_vencimento')
       table.dateTime('data_cadastro', { useTz: true })
       table.dateTime('created_at', { useTz: true })
       table.dateTime('updated_at', { useTz: true })
