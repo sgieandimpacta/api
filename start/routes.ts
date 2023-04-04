@@ -25,3 +25,4 @@ Route.get('/', async () => {
 })
 
 Route.resource('payments', 'PaymentsController')
+Route.resource('companies', 'CompaniesController')
