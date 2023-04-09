@@ -3,7 +3,9 @@ import Company from 'App/Models/Company'
 
 export default class CompaniesController {
   public async index(ctx: HttpContextContract) {
-    const companies = await Company.all()
+    const companies = (await Company.all()).sort((a, b) =>
+      a.descricao_resumida.toLowerCase().localeCompare(b.descricao_resumida.toLowerCase())
+    )
     return ctx.response.send(companies, true)
   }
 
