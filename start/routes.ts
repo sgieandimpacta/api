@@ -24,5 +24,10 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.resource('payments', 'PaymentsController')
-Route.resource('companies', 'CompaniesController')
+Route.group(() => {
+  Route.resource('payments', 'PaymentsController')
+  Route.resource('companies', 'CompaniesController')
+  Route.resource('users', 'UsersController')
+}).middleware('auth:api')
+
+Route.post('login', 'AuthController.login')
