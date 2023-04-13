@@ -3,9 +3,9 @@ import Payment from 'App/Models/Payment'
 
 export default class PostsController {
   public async index(ctx: HttpContextContract) {
-    const payments = (await Payment.all()).sort((a: Payment, b: Payment) => {
-      return a.data_vencimento.toMillis() - b.data_vencimento.toMillis()
-    })
+    const page = ctx.request.input('page') || 1
+    const limit = ctx.request.input('limit') || 10
+    const payments = await Payment.query().orderBy('data_vencimento', 'asc').paginate(page, limit)
     return ctx.response.send(payments, true)
   }
 
