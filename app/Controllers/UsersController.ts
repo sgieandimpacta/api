@@ -3,13 +3,13 @@ import User from 'App/Models/User'
 
 export default class UsersController {
   public async index(ctx: HttpContextContract) {
-    const companies = await User.all()
-    return ctx.response.send(companies, true)
+    const users = await User.all()
+    return ctx.response.send(users, true)
   }
 
   public async store(ctx: HttpContextContract) {
-    const payment = await User.create(ctx.request.body())
-    return ctx.response.send(payment, true)
+    const user = await User.create(ctx.request.body())
+    return ctx.response.send(user, true)
   }
 
   public async show(ctx: HttpContextContract) {
